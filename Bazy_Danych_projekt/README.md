@@ -2,6 +2,8 @@
 
 **Przedmiot:** Wprowadzenie do baz danych  
 **Zespół:** Piotr Mrówka, Michał Midor, Tomasz Mazur
+
+
 **Źródło danych:** [OpenSky Network REST API](https://openskynetwork.github.io/opensky-api/)  
 **Stos technologiczny:** PostgreSQL · Python · Streamlit · Plotly
 
@@ -29,7 +31,7 @@ projekt/
 ├── README.md           # Ten plik
 ├── pyproject.toml      # Zależności Python (uv)
 ├── schema.sql          # Skrypt DDL – tworzenie tabel, indeksów, widoków
-├── import\\\_opensky.py   # Skrypt importu danych z API do PostgreSQL
+├── import\\\\\\\_opensky.py   # Skrypt importu danych z API do PostgreSQL
 ├── queries.sql         # 5 zaawansowanych zapytań analitycznych SQL
 └── dashboard.py        # Dashboard Streamlit z wizualizacjami
 ```
@@ -66,14 +68,14 @@ source .venv/bin/activate
 
 ```cmd
 uv venv
-.venv\\\\Scripts\\\\activate
+.venv\\\\\\\\Scripts\\\\\\\\activate
 ```
 
 **Windows (PowerShell):**
 
 ```powershell
 uv venv
-.\\\\.venv\\\\Scripts\\\\Activate.ps1
+.\\\\\\\\.venv\\\\\\\\Scripts\\\\\\\\Activate.ps1
 ```
 
 ### 3\. Instalacja zależności
@@ -98,7 +100,7 @@ cp .env.example .env
 copy .env.example .env
 ```
 
-Otwórz plik `.env` w edytorze tekstu i wpisz poprawne wartości dla: `DB\\\_HOST`, `DB\\\_PORT`, `DB\\\_NAME`, `DB\\\_USER`, `DB\\\_PASSWORD`.
+Otwórz plik `.env` w edytorze tekstu i wpisz poprawne wartości dla: `DB\\\\\\\_HOST`, `DB\\\\\\\_PORT`, `DB\\\\\\\_NAME`, `DB\\\\\\\_USER`, `DB\\\\\\\_PASSWORD`.
 
 ### 5\. Inicjalizacja bazy danych i ładowanie schematu
 
@@ -125,8 +127,8 @@ psql -U postgres -d opensky -f schema.sql
 Jeżeli serwer wymaga podania hasła (metoda `md5`), użyj:
 
 ```bash
-PGPASSWORD='twoje\\\_haslo' psql -h localhost -U postgres -c "CREATE DATABASE opensky;"
-PGPASSWORD='twoje\\\_haslo' psql -h localhost -U postgres -d opensky -f schema.sql
+PGPASSWORD='twoje\\\\\\\_haslo' psql -h localhost -U postgres -c "CREATE DATABASE opensky;"
+PGPASSWORD='twoje\\\\\\\_haslo' psql -h localhost -U postgres -d opensky -f schema.sql
 ```
 
 #### Opcja C: Windows (CMD / PowerShell)
@@ -144,10 +146,10 @@ Po poprawnym skonfigurowaniu bazy uruchom skrypt importu danych oraz aplikację 
 
 ```bash
 # Uruchomienie jednorazowego importu
-python import\\\_opensky.py
+python import\\\\\\\_opensky.py
 
 # LUB uruchomienie importu w pętli (tryb ciągły)
-python import\\\_opensky.py --loop
+python import\\\\\\\_opensky.py --loop
 
 # Uruchomienie dashboardu wizualizacyjnego
 streamlit run dashboard.py
@@ -155,7 +157,7 @@ streamlit run dashboard.py
 
 ## Porady i rozwiązywanie problemów
 
-* **Błąd "Peer authentication failed for user 'postgres'":** Na systemach Linux użycie przedrostka `sudo -u postgres ...` lub zmiana metody uwierzytelniania na `md5` w pliku konfiguracyjnym `pg\\\_hba.conf` (wymaga restartu serwera PostgreSQL) i ustawienie hasła dla użytkownika.
+* **Błąd "Peer authentication failed for user 'postgres'":** Na systemach Linux użycie przedrostka `sudo -u postgres ...` lub zmiana metody uwierzytelniania na `md5` w pliku konfiguracyjnym `pg\\\\\\\_hba.conf` (wymaga restartu serwera PostgreSQL) i ustawienie hasła dla użytkownika.
 * **Połączenie z bazą:** Należy upewnić się, czy wartości wpisane w pliku `.env` są identyczne z konfiguracją serwera oraz czy usługa PostgreSQL nasłuchuje na wskazanym porcie.
 * **Dane historyczne (backfill):** Darmowy punkt końcowy API `states/all` zwraca wyłącznie stan ruchu lotniczego w milisekundzie zapytania. Aby gromadzić dane długofalowo, należy uruchomić skrypt importu w trybie ciągłym (`--loop`) ze stałym interwałem czasowym (polling) bądź skorzystać z płatnego dostępu do historycznych dumpów OpenSky.
 

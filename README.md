@@ -7,5 +7,6 @@ skupiające się na automatyce, robotyce oraz modelowaniu systemów.
 
 1. **[Projekt PLC](./PLC_projekt)** - Implementacja algorytmów sterowania dla sterowników logicznych.
 2. **[Projekt Chwytak](./Chwytak_projekt)** - Dokumentacja i rysunki techniczne dotyczące konstrukcji oraz sterowania chwytakiem.
-3. **Projekt Simulink** - Modelowanie i symulacja systemów dynamicznych. 
+3. **[Projekt Bazy Danych] (./Bazy_Danych_projekt)** - Baza danych oparta na API opensky z wizualizacją w dashboardzie.
+3. **Projekt Sterowania dronem** - Stabilizacja minidrona po wykonaniu gwałtownych manewrów . 
    >  **Status:** Projekt jest obecnie w fazie opracowywania (Work in Progress).
